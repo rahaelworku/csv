@@ -1,16 +1,21 @@
-open_file= open("sitka_weather_07-2018_simple.csv")
+import matplotlib.pyplot as plt
+import csv
 
-header_row = next (CSV_file)
+open_file= open("sitka_weather_07-2018_simple.csv","r")
+
+csv_file = csv.reader(open_file, delimiter=",")
+
+header_row = next(csv_file)
 
 #print(type(header_row))
 
 for index,column_header in enumerate(header_row):
-    print(index, column)
+    print(index, column_header)
 
-high = []
-low = []
+highs = []
+dates = []
 
-for row in CSV_file:
+for row in csv_file:
     highs.append(int(row[5]))
     dates.append(row[2])
 
@@ -20,11 +25,11 @@ fig = plt.figure()
 
 plt.plot(dates, highs, color='red')
 plt.title("daily high temps, july 2018", fontsize=16)
-plt.xlabel("",fontsize=12)
+plt.xlabel("",fontsize=1)
 plt.ylabel("temperature (F)", fontsize=12)
 plt.tick_params(axis='both', which="major", labelsize=12)
 
 #The call to fig.auto_xdate() draws the date labels
 #diagnollay to prevent them from overlapping 
 fig.autofmt_xdate()
-plt.show 
+plt.show()

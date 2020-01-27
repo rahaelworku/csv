@@ -1,28 +1,28 @@
 import matplotlib.pyplot as plt
+import csv
 
-plt.plot([1,2,3,4,5], color='red')
+open_file= open("sitka_weather_07-2018_simple.csv","r")
 
-plt.show()
+csv_file = csv.reader(open_file, delimiter=",")
 
-#open_file= open("sitka_weather_07-2018_simple.csv")
-
-#header_row = next (csv_file)
+header_row = next(csv_file)
 
 #print(type(header_row))
 
-#for index,column_header in enumerate(header_row):
-    #print(index, column)
+for index,column_header in enumerate(header_row):
+    print(index, column_header)
 
-#for row in csv_file:
-    #highs.append(int(row[5]))
+highs=[]
 
-#print(highs[:10])
+for row in csv_file:
+    highs.append(int(row[5]))
 
-#plt.plot(highs, color='red')
+print(highs[:10])
 
-#plt.title("daily high temps, july 2018, fontsize=16")
-#plt.xlabel("",fontsize=16)
-#plt.ylabel("temperature (F)", fontsize=16)
-#plt.tick_params(axis='both', which="major", labelsize=16)
+plt.plot(highs, color='red')
+plt.title("daily high temps, july 2018", fontsize=16)
+plt.xlabel("",fontsize=16)
+plt.ylabel("temperature (F)", fontsize=16)
+plt.tick_params(axis='both', which="major", labelsize=16)
 
-#plt.show 
+plt.show()
