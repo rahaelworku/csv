@@ -24,9 +24,9 @@ for row in csv_file:
 fig = plt.figure()
 
 plt.plot(dates, highs, color='red')
-plt.title("daily high temps, july 2018", fontsize=16)
+plt.title("daily high temps, July 2018", fontsize=16)
 plt.xlabel("",fontsize=10)
-plt.ylabel("temperature (F)", fontsize=12)
+plt.ylabel("Temperature (F)", fontsize=12)
 plt.tick_params(axis='both', which="major", labelsize=12)
 
 #The call to fig.auto_xdate() draws the date labels
