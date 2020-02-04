@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import csv
 from datetime import datetime
 
-open_file= open("sitka_weather_07-2018_simple.csv","r")
+open_file= open("p:\\CSV_Project\\matplotlib_csv\\sitka_weather_2018_simple.csv","r")
 
 csv_file = csv.reader(open_file, delimiter=",")
 
@@ -29,9 +29,9 @@ for row in csv_file:
 fig= plt.figure()
 
 plt.plot(dates, highs, color='red', alpha=0.5)
-plt.plot(dates,lows,color='blue',alpha=0.5 )
+plt.plot(dates, lows, color='blue', alpha=0.5 )
 
-plt.fill_between(dates,highs,lows, facecolor='blue', alpha=0.1)
+plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 plt.title("daily high temps, july 2018", fontsize=16)
 plt.xlabel("",fontsize=10)
